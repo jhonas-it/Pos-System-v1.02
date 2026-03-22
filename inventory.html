@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inventory</title>
+<link rel="preload" href="fonts/Lato-Bold.ttf" as="font" type="font/truetype" crossorigin>
+<link rel="stylesheet" href="navigationbar.css">
+<link rel="stylesheet" href="inventory.css">
+<link rel="stylesheet" href="topbar.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="logo">
+      <h2>Manager</h2>
+      <p>Jhonas Pogi</p>
+    </div>
+    <ul>
+      <li><a href="dashboard.html" class="link"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+      <li><a href="pos.html" class="link"><i data-lucide="shopping-cart"></i> POS</a></li>
+      <li><a href="products.html" class="link"><i data-lucide="box"></i> Products</a></li>
+      <li class="active"><a href="inventory.html" class="link"><i data-lucide="layers"></i> Inventory</a></li>
+      <li><a href="sales.html" class="link"><i data-lucide="receipt"></i> Sales</a></li>
+      <li><a href="staff.html" class="link"><i data-lucide="users"></i> Staff</a></li>
+      <li><a href="settings.html" class="link"><i data-lucide="settings"></i> Settings</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="topbars"><h3>INVENTORY</h3></div>
+      <a href="#" class="logout" onclick="openModal('logoutModal')">
+        <i data-lucide="log-out"></i> Logout
+      </a>
+    </div>
+
+    <!-- SEARCH + STATS -->
+    <div class="inventory-header">
+      <div class="search-wrap">
+        <i data-lucide="search" class="search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search by product name or by Id" />
+      </div>
+
+      <div class="stat-box">
+        Total Items: <span id="totalItems">0</span>
+      </div>
+
+      <div class="stat-box" id="lowStockBox">
+        Low Stock Alerts: <span id="lowStock">0</span>
+        <div class="stat-alert-icon">
+          <i data-lucide="alert-triangle" style="width:18px;height:18px;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>SKU</th>
+            <th>Status</th>
+            <th>Current Stock</th>
+            <th>Update Stock</th>
+          </tr>
+        </thead>
+        <tbody id="inventoryTable"></tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!--LOGOUT MODAL-->
+    <div class="modal" id="logoutModal">
+    <div class="modal-content">
+      <h2>Logout</h2>
+      <p>Are you sure you want to logout?</p>
+
+    <div class="modal-buttons">
+      <button onclick="closeModal('logoutModal')" class="cancelBtn">Cancel</button>
+      <button class="deleteBtn" onclick="confirmLogout()">Logout</button>
+    </div>
+  </div>
+</div>
+
+<script src="lucide.min.js"></script>
+<script src="navigationbar.js"></script>
+<script src="inventory.js"></script>
+<script>lucide.createIcons();</script>
+
+<div id="alertsContainer"></div>
+</body>
+</html>
