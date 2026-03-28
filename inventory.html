@@ -40,22 +40,55 @@
       </a>
     </div>
 
-    <!-- SEARCH + STATS -->
+    <!-- STAT CARDS -->
+    <div class="inventory-stats">
+
+      <!-- Total Products -->
+      <div class="stat-card">
+        <div class="stat-icon-wrap orange">
+          <i data-lucide="package"></i>
+        </div>
+        <div class="stat-text">
+          <div class="stat-label">Total Products</div>
+          <div class="stat-value" id="statTotalProducts">0</div>
+        </div>
+      </div>
+
+      <!-- Low Stock Alerts -->
+      <div class="stat-card" id="lowStockCard">
+        <div class="stat-icon-wrap red">
+          <i data-lucide="alert-circle"></i>
+        </div>
+        <div class="stat-text">
+          <div class="stat-label">Low Stock Alerts</div>
+          <div class="stat-value" id="statLowStock">0</div>
+        </div>
+      </div>
+
+      <!-- Total Units -->
+      <div class="stat-card stat-blue">
+        <div class="stat-icon-wrap blue">
+          <i data-lucide="trending-down"></i>
+        </div>
+        <div class="stat-text">
+          <div class="stat-label">Total Units</div>
+          <div class="stat-value" id="statTotalUnits">0</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SEARCH + FILTER TABS -->
     <div class="inventory-header">
       <div class="search-wrap">
         <i data-lucide="search" class="search-icon"></i>
-        <input type="text" id="searchInput" placeholder="Search by product name or by Id" />
+        <input type="text" id="searchInput" placeholder="Search inventory items..." />
       </div>
 
-      <div class="stat-box">
-        Total Items: <span id="totalItems">0</span>
-      </div>
-
-      <div class="stat-box" id="lowStockBox">
-        Low Stock Alerts: <span id="lowStock">0</span>
-        <div class="stat-alert-icon">
-          <i data-lucide="alert-triangle" style="width:18px;height:18px;"></i>
-        </div>
+      <div class="filter-tabs">
+        <button id="tabAll" class="filter-tab active" onclick="setFilter('all')">All</button>
+        <button id="tabLow" class="filter-tab"        onclick="setFilter('low')">Low Stock</button>
+        <button id="tabIn"  class="filter-tab"        onclick="setFilter('in')">In Stock</button>
       </div>
     </div>
 
@@ -64,10 +97,11 @@
       <table>
         <thead>
           <tr>
-            <th>SKU</th>
+            <th>Product Name</th>
             <th>Status</th>
-            <th>Current Stock</th>
-            <th>Update Stock</th>
+            <th style="text-align:center">Current Stock</th>
+            <th>Last Updated</th>
+            <th style="text-align:right">Update Stock</th>
           </tr>
         </thead>
         <tbody id="inventoryTable"></tbody>
@@ -77,12 +111,11 @@
   </div>
 </div>
 
-<!--LOGOUT MODAL-->
-    <div class="modal" id="logoutModal">
-    <div class="modal-content">
-      <h2>Logout</h2>
-      <p>Are you sure you want to logout?</p>
-
+<!-- LOGOUT MODAL -->
+<div class="modal" id="logoutModal">
+  <div class="modal-content">
+    <h2>Logout</h2>
+    <p>Are you sure you want to logout?</p>
     <div class="modal-buttons">
       <button onclick="closeModal('logoutModal')" class="cancelBtn">Cancel</button>
       <button class="deleteBtn" onclick="confirmLogout()">Logout</button>
@@ -90,11 +123,12 @@
   </div>
 </div>
 
+<div id="alertsContainer"></div>
+
 <script src="lucide.min.js"></script>
 <script src="navigationbar.js"></script>
 <script src="inventory.js"></script>
 <script>lucide.createIcons();</script>
 
-<div id="alertsContainer"></div>
 </body>
 </html>
