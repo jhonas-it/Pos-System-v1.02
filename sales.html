@@ -44,14 +44,23 @@
             <!-- STAT CARDS -->
             <div class="cards">
                 <div class="card">
+                    <div class="card-icon-wrap orange">
+                        <i data-lucide="trending-up" style="width:18px;height:18px;"></i>
+                    </div>
                     <p>Total Revenue</p>
                     <h2 id="total-revenue">₱0.00</h2>
                 </div>
                 <div class="card">
+                    <div class="card-icon-wrap blue">
+                        <i data-lucide="shopping-bag" style="width:18px;height:18px;"></i>
+                    </div>
                     <p>Transactions</p>
                     <h2 id="total-trans">0</h2>
                 </div>
                 <div class="card">
+                    <div class="card-icon-wrap green">
+                        <i data-lucide="dollar-sign" style="width:18px;height:18px;"></i>
+                    </div>
                     <p>Avg Ticket</p>
                     <h2 id="avg-ticket">₱0.00</h2>
                 </div>
@@ -68,8 +77,6 @@
 
             <!-- TAB 1: SALES BY DATE -->
             <div id="sales-date" class="tab-pane active">
-
-                <!-- Revenue Line Chart -->
                 <div class="chart-box">
                     <div class="chart-header">
                         <div>
@@ -99,7 +106,6 @@
                     </div>
                 </div>
 
-                <!-- Transaction Bar Chart -->
                 <div class="chart-box">
                     <div class="chart-header">
                         <h3>Transaction Count</h3>
@@ -110,7 +116,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <!-- TAB 2: PRODUCT SALES -->
@@ -159,8 +164,8 @@
                 </div>
             </div>
 
-        </div><!-- End Main -->
-    </div><!-- End Container -->
+        </div>
+    </div>
 
     <!-- RECEIPT MODAL -->
     <div id="receipt-modal" class="modal-overlay">
@@ -182,6 +187,7 @@
                 <div class="receipt-summary">
                     <div class="summary-line"><span>Subtotal</span><span id="m-subtotal">₱0.00</span></div>
                     <div class="summary-line"><span>Tax (12% VAT)</span><span id="m-tax">₱0.00</span></div>
+                    <div class="summary-line"><span>Senior Discount (20%)</span><span id="m-tax">₱0.00</span></div>
                     <div class="summary-line total">
                         <span>Total</span>
                         <span id="m-total" class="text-orange">₱0.00</span>
@@ -199,18 +205,17 @@
         </div>
     </div>
 
-    <!--LOGOUT MODAL-->
+    <!-- LOGOUT MODAL -->
     <div class="logout-modal" id="logoutModal">
-    <div class="modal-content">
-      <h2>Logout</h2>
-      <p>Are you sure you want to logout?</p>
-
-    <div class="modal-buttons">
-      <button onclick="closeModal('logoutModal')" class="cancelBtn">Cancel</button>
-      <button class="deleteBtn" onclick="confirmLogout()">Logout</button>
+        <div class="modal-content">
+            <h2>Logout</h2>
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button onclick="closeModal('logoutModal')" class="cancelBtn">Cancel</button>
+                <button class="deleteBtn" onclick="confirmLogout()">Logout</button>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
     <script src="lucide.min.js"></script>
     <script src="navigationbar.js"></script>
